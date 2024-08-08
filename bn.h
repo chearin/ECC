@@ -19,3 +19,6 @@ void PF_substraction(BIGNUM* c, const BIGNUM* P, const BIGNUM* a, const BIGNUM* 
 
 void BignumberLShift32(BIGNUM* r, const BIGNUM* a, const uint32_t n);
 void BignumberLShift(BIGNUM* r, const BIGNUM* a, const uint32_t n);
+
+void BignumberRShift32(BIGNUM* r, const BIGNUM* a, const uint32_t n);
+void BignumberRShift(BIGNUM* r, const BIGNUM* a, const uint32_t n);

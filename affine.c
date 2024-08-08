@@ -5,8 +5,6 @@ void ECADD(BIGNUMPOINT* r, const BIGNUMPOINT* p1, const BIGNUMPOINT* p2, const B
 	BIGNUM temp1 = { 0, };
 	BIGNUM temp2 = { 0, };
 	BIGNUM temp3 = { 0, };
-	BIGNUM two = { { 2 }, 1, 0 };
-	BIGNUM three = { { 3 }, 1, 0 };
 
 	//x3 = ((y2 - y1)/(x2 - x1))^2 - x1 - x2
 	PF_substraction(&temp1, P, p2->y, p1->y);
@@ -42,8 +40,6 @@ void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM*
 	BIGNUM temp1 = { 0, };
 	BIGNUM temp2 = { 0, };
 	BIGNUM temp3 = { 0, };
-	BIGNUM two = { { 2 }, 1, 0 };
-	BIGNUM three = { { 3 }, 1, 0 };
 
 	//x3 = ((3*x1^2 + a)/(2*y1))^2 - 2*x1
 	Squaring(&temp1, p1->x);

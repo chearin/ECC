@@ -182,4 +182,56 @@ void BignumberLShift(BIGNUM* r, const BIGNUM* a, const uint32_t n)
 		r->d[0] <<= rest;
 		r->top = atop + q + 1;
 	}
+	for (int i = r->top - 1; i >= 0; i--)
+	{
+		if (r->d[i] == 0)
+		{
+			r->top--;
+		}
+		else
+		{
+			break;
+		}
+	}
+}
+
+void BignumberRShift32(BIGNUM* r, const BIGNUM* a, const uint32_t n)
+{
+	for (int i = 0; i < a->top - n; i++)
+	{
+		r->d[i] = a->d[i + n];
+	}
+	for (int i = a->top - n; i < a->top; i++)
+	{
+		r->d[i] = 0;
+	}
+	r->top = a->top - n;
+}
+
+void BignumberRShift(BIGNUM* r, const BIGNUM* a, const uint32_t n)
+{
+	uint32_t q = n / 32;
+	uint32_t rest = n % 32;
+
+	BignumberRShift32(r, a, q);
+	if (rest)
+	{
+		for (int i = 0; i < r->top - 1; i++)
+		{
+			r->d[i] = r->d[i] >> rest;
+			r->d[i] += r->d[i + 1] << (32 - rest);
+		}
+		r->d[r->top - 1] >>= rest;
+	}
+	for (int i = r->top - 1; i >= 0; i--)
+	{
+		if (r->d[i] == 0)
+		{
+			r->top--;
+		}
+		else
+		{
+			break;
+		}
+	}
 }

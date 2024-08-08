@@ -6,6 +6,7 @@
 int main()
 {
 	AFFINE();
+	JACOBIAN();
 
 	return 0;
 }
