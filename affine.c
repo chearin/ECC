@@ -22,7 +22,8 @@ void ECADD(BIGNUMPOINT* r, const BIGNUMPOINT* p1, const BIGNUMPOINT* p2, const B
 	{
 		r->x->d[i] = temp1.d[i];
 	}
-	
+	r->x->top = temp1.top;
+
 	//y3 = (y2 - y1)/(x2 - x1)*(x1 - x3) - y1
 	PF_substraction(&temp1, P, p1->x, r->x);
 	OperandScanning(&temp1, &temp3, &temp1);
@@ -33,6 +34,7 @@ void ECADD(BIGNUMPOINT* r, const BIGNUMPOINT* p1, const BIGNUMPOINT* p2, const B
 	{
 		r->y->d[i] = temp1.d[i];
 	}
+	r->y->top = temp1.top;
 }
 
 void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM* P)
@@ -62,6 +64,7 @@ void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM*
 	{
 		r->x->d[i] = temp1.d[i];
 	}
+	r->x->top = temp1.top;
 
 	//y3 = (3*x1^2 + a)/(2*y1)*(x1 - x3) - y1
 	PF_substraction(&temp1, P, p1->x, r->x);
@@ -73,4 +76,5 @@ void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM*
 	{
 		r->y->d[i] = temp1.d[i];
 	}
+	r->y->top = temp1.top;
 }

@@ -1,0 +1,14 @@
+﻿  affine.c
+  projective.c
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(26,28): warning C4047: '함수': 'const BIGNUM *'의 간접 참조 수준이 'BIGNUM *const *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(26,28): warning C4024: 'OperandScanning': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(28,28): warning C4047: '함수': 'const BIGNUM *'의 간접 참조 수준이 'BIGNUM *const *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(28,28): warning C4024: 'OperandScanning': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(30,28): warning C4047: '함수': 'const BIGNUM *'의 간접 참조 수준이 'BIGNUM *const *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(30,28): warning C4024: 'OperandScanning': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(70,23): warning C4047: '함수': 'const BIGNUM *'의 간접 참조 수준이 'BIGNUM *const *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(70,23): warning C4024: 'OperandScanning': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(76,28): warning C4047: '함수': 'const BIGNUM *'의 간접 참조 수준이 'BIGNUM *const *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c(76,28): warning C4024: 'OperandScanning': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+  코드를 생성하고 있습니다...
+  ECC.vcxproj -> C:\Users\happy\source\repos\2024(인턴)\ECC\x64\Debug\ECC.exe

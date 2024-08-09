@@ -5,8 +5,7 @@
 
 int main()
 {
-	AFFINE();
-	JACOBIAN();
+	ECADDDBL();
 
 	return 0;
 }

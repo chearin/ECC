@@ -14,4 +14,89 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="affine.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="bn.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="inversion.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="karatsuba.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="mul.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="reduction.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="util.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="bnPoint.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ec.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="projective.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cpucycles.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="scalarMul.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="affine.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="bn.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="inversion.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="karatsuba.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="mul.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="reduction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="bnPoint.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ec.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="projective.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="cpucycles.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="scalarMul.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
