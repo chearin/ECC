@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "util.h"
 
-
 FILE* fileOpen(char* fname, char* mode)
 {
 	FILE* fp = fopen(fname, mode);

@@ -1,4 +1,5 @@
 #pragma once
+#include "util.h"
 #include "cpucycles.h"
 #include "bn.h"
 #include "bnPoint.h"

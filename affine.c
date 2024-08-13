@@ -58,7 +58,7 @@ void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM*
 	Squaring(&temp1, &temp1);
 	fastReduction2(&temp1, &temp1, P);
 	PF_addition(&temp2, P, p1->x, p1->x);
-	PF_substraction(&temp1, P, &temp1, &temp1);
+	PF_substraction(&temp1, P, &temp1, &temp2);
 
 	for (int i = 0; i < temp1.top; i++)
 	{
