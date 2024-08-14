@@ -23,11 +23,11 @@ void ECADDJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUMPOINT* p2
 	//z3 = z1*(x2*z1^2 - x1)
 	Squaring(&t1, p1->z);
 	fastReduction2(&t1, &t1, P);
-	OperandScanning(&t2, &t1, &p1->z);
+	OperandScanning(&t2, &t1, p1->z);
 	fastReduction2(&t2, &t2, P);
-	OperandScanning(&t1, &t1, &p2->x);
+	OperandScanning(&t1, &t1, p2->x);
 	fastReduction2(&t1, &t1, P);
-	OperandScanning(&t2, &t2, &p2->y);
+	OperandScanning(&t2, &t2, p2->y);
 	fastReduction2(&t2, &t2, P);
 	PF_substraction(&t1, P, &t1, p1->x);
 	PF_substraction(&t2, P, &t2, p1->y);
@@ -67,13 +67,13 @@ void ECADDJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUMPOINT* p2
 		return;
 	}
 	//
-	OperandScanning(&z3, &p1->z, &t1);
+	OperandScanning(&z3, p1->z, &t1);
 	fastReduction2(&z3, &z3, P);
 	Squaring(&t3, &t1);
 	fastReduction2(&t3, &t3, P);
 	OperandScanning(&t4, &t3, &t1);
 	fastReduction2(&t4, &t4, P);
-	OperandScanning(&t3, &t3, &p1->x);
+	OperandScanning(&t3, &t3, p1->x);
 	fastReduction2(&t3, &t3, P);
 	OperandScanning(&t1, &t3, &two);
 	fastReduction2(&t1, &t1, P);
@@ -120,8 +120,8 @@ void ECDBLJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUM* P)
 	BIGNUM inv2 = { 0, };
 	BIGNUM temp = { 0, };
 
-	BIGNUM two = { {2, }, };
-	BIGNUM three = { {3, }, };
+	BIGNUM two = { {2, },1,0 };
+	BIGNUM three = { {3, },1,0 };
 
 	//x3 = (3*x1^2 + a*z1^4)^2 - 8*x1*y1^2
 	//y3 = (3*x1^2 + a*z1^4)*(4*x1*y1^2 - x3) - 8*y1^4

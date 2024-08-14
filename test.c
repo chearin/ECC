@@ -7,6 +7,8 @@ void ECADDDBL()
 	FILE* fp1 = NULL;
 	FILE* fp2 = NULL;
 	FILE* fp3 = NULL;
+	FILE* fp4 = NULL;
+	FILE* fp5 = NULL;
 
 	unsigned char input_str[1000] = { 0 };
 	uint32_t P256[8] = { 0 };
@@ -17,15 +19,15 @@ void ECADDDBL()
 	BIGNUM P = { 0, };
 	BIGNUM ax = { 0, };
 	BIGNUM ay = { 0, };
-	BIGNUM az = { 0, };
+	BIGNUM az = { {1,},1,0 };
 	BIGNUM bx = { 0, };
 	BIGNUM by = { 0, };
-	BIGNUM bz = { 0, };
+	BIGNUM bz = { {1,},1,0 };
 	BIGNUM rx = { 0, };
 	BIGNUM ry = { 0, };
-	BIGNUM rz = { 0, };
-	BIGNUM cur_a = { {2,},1,0 };
-	BIGNUM cur_b = { {3,},1,0 };
+	BIGNUM rz = { {1,},1,0 };
+	BIGNUM cur_a = { {3,},1,0 };
+	BIGNUM cur_b = { {0,},0,0 };
 
 	BIGNUMPOINT A = { 0, };
 	BIGNUMPOINT B = { 0, };
@@ -45,6 +47,8 @@ void ECADDDBL()
 	fp1 = fileOpen("중간결과값.txt", "r");
 	fp2 = fileOpen("ECDBL.txt", "w");
 	fp3 = fileOpen("ECADD.txt", "w");
+	fp4 = fileOpen("ECDBLJA.txt", "w");
+	fp5 = fileOpen("ECADDJA.txt", "w");
 
 	//p256값 저장
 	fscanf(fp0, "%s", input_str);
@@ -77,82 +81,110 @@ void ECADDDBL()
 	ECDBLcc += (end - start);
 	
 	//결과값 파일에 쓰기
+	printf("DBL: ");
 	fprintf(fp2, "DBL: ");
 	for (int i = RA.x->top - 1; i >= 0; i--)
 	{
-		fprintf(fp2, "%08X", RA.x->d[i]);
+		printf("%08x", RA.x->d[i]);
+		fprintf(fp2, "%08x", RA.x->d[i]);
 	}
+	printf(", ");
 	fprintf(fp2, ", ");
 	for (int i = RA.y->top - 1; i >= 0; i--)
 	{
-		fprintf(fp2, "%08X", RA.y->d[i]);
+		printf("%08x", RA.y->d[i]);
+		fprintf(fp2, "%08x", RA.y->d[i]);
 	}
 	fprintf(fp2, "\n\n");
+	printf("\n\n");
 
-	//테스트 벡터들 읽기
-	fscanf(fp1, ")\n2. 2 x G=(");
-	for (int i = 7; i >= 0; i--)
-	{
-		fscanf(fp1, "%08x", &opA[i]);
-	}
-	fscanf(fp1, ", ");
-	for (int i = 7; i >= 0; i--)
-	{
-		fscanf(fp1, "%08x", &opB[i]);
-	}
-
-	//Affine addition
-	initBignum(&opA, 8, &rx);
-	initBignum(&opB, 8, &ry);
-	initPoint(&RA, &rx, &ry);
-	
+	//Affine addition	
 	start = cpucycles();
 	ECADD(&RA, &A, &RA, &P);
 	end = cpucycles();
 	ECADDcc += (end - start);
 
 	//결과값 파일에 쓰기
+	printf("ADD: ");
 	fprintf(fp3, "ADD: ");
 	for (int i = RA.x->top - 1; i >= 0; i--)
 	{
-		fprintf(fp3, "%08X", RA.x->d[i]);
+		printf("%08x", RA.x->d[i]);
+		fprintf(fp3, "%08x", RA.x->d[i]);
 	}
+	printf(", ");
 	fprintf(fp3, ", ");
 	for (int i = RA.y->top - 1; i >= 0; i--)
 	{
-		fprintf(fp3, "%08X", RA.y->d[i]);
+		printf("%08x", RA.y->d[i]);
+		fprintf(fp3, "%08x", RA.y->d[i]);
 	}
-	fprintf(fp3, "\n\n");	
+	printf("\n\n");
+	fprintf(fp3, "\n\n");
 
-	////Jacobian addition, doubling
-	//initPointJA(&AJ, &ax, &ay, &az);
-	//initPoint(&B, &bx, &by);
-	//initPointJA(&RJ, &rx, &ry, &rz);
-	//initPoint(&RA, &rx, &ry);
+	//Jacobian doubling
+	initPointJA(&AJ, &ax, &ay, &az);
+	initPointJA(&RJ, &rx, &ry, &rz);
+	initPoint(&RA, &rx, &ry);
 
-	//start = cpucycles();
-	//ECADDJ(&RJ, &AJ, &B, &P);
-	//end = cpucycles();
-	//JAECADDcc += (end - start);
-	//J2A(&RA, &RJ, &P);
+	start = cpucycles();
+	ECDBLJ(&RJ, &AJ, &P);
+	end = cpucycles();
+	JAECDBLcc += (end - start);
+	J2A(&RA, &RJ, &P);
 
-	//initPointJA(&AJ, &ax, &ay, &az);
-	//initPointJA(&RJ, &rx, &ry, &rz);
-	//initPoint(&RA, &rx, &ry);
+	//결과값 파일에 쓰기
+	printf("DBLJ: ");
+	fprintf(fp4, "DBLJ: ");
+	for (int i = RA.x->top - 1; i >= 0; i--)
+	{
+		printf("%08x", RA.x->d[i]);
+		fprintf(fp4, "%08x", RA.x->d[i]);
+	}
+	printf(", ");
+	fprintf(fp4, ", ");
+	for (int i = RA.y->top - 1; i >= 0; i--)
+	{
+		printf("%08x", RA.y->d[i]);
+		fprintf(fp4, "%08x", RA.y->d[i]);
+	}
+	printf("\n\n");
+	fprintf(fp4, "\n\n");
 
-	//start = cpucycles();
-	//ECDBLJ(&RJ, &AJ, &P);
-	//end = cpucycles();
-	//JAECDBLcc += (end - start);
-	//J2A(&RA, &RJ, &P);	
+	//Jacobian addition
+	start = cpucycles();
+	ECADDJ(&RJ, &RJ, &A, &P);
+	end = cpucycles();
+	JAECADDcc += (end - start);
+	J2A(&RA, &RJ, &P);
+
+	//결과값 파일에 쓰기
+	printf("ADDJ: ");
+	fprintf(fp5, "ADDJ: ");
+	for (int i = RA.x->top - 1; i >= 0; i--)
+	{
+		printf("%08x", RA.x->d[i]);
+		fprintf(fp5, "%08x", RA.x->d[i]);
+	}
+	printf(", ");
+	fprintf(fp5, ", ");
+	for (int i = RA.y->top - 1; i >= 0; i--)
+	{
+		printf("%08x", RA.y->d[i]);
+		fprintf(fp5, "%08x", RA.y->d[i]);
+	}
+	printf("\n\n");
+	fprintf(fp5, "\n\n");
 
 	printf("ECADDcc = %d\n", ECADDcc);
 	printf("ECDBLcc = %d\n", ECDBLcc);
-	//printf("JAECADDcc = %d\n", JAECADDcc);
-	//printf("JAECDBLcc = %d\n", JAECDBLcc);
+	printf("JAECADDcc = %d\n", JAECADDcc);
+	printf("JAECDBLcc = %d\n", JAECDBLcc);
 
 	fclose(fp0);
 	fclose(fp1);
 	fclose(fp2);
 	fclose(fp3);
+	fclose(fp4);
+	fclose(fp5);
 }

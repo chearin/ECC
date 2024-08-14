@@ -49,7 +49,7 @@ void ECDBL(BIGNUMPOINT* r, const ECURVE* e, const BIGNUMPOINT* p1, const BIGNUM*
 	BignumberCopy(&temp3, &temp1);
 	PF_addition(&temp1, P, &temp1, &temp1);
 	PF_addition(&temp1, P, &temp1, &temp3);
-	PF_addition(&temp1, P, &temp1, e->a);
+	PF_substraction(&temp1, P, &temp1, e->a);
 	PF_addition(&temp2, P, p1->y, p1->y);
 	FLT256(&temp2, P, &temp2);
 	OperandScanning(&temp1, &temp1, &temp2);
