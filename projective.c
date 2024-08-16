@@ -9,9 +9,6 @@ void ECADDJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUMPOINT* p2
 	BIGNUM x3 = { 0, };
 	BIGNUM y3 = { 0, };
 	BIGNUM z3 = { 0, };
-	BIGNUM inv1 = { 0, };
-	BIGNUM inv2 = { 0, };
-	BIGNUM temp = { 0, };
 
 	BIGNUM zero = { {0, }, };
 	BIGNUM one = { {1, },1, 0 };
@@ -34,7 +31,7 @@ void ECADDJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUMPOINT* p2
 	// Algorithm line9: if¹®
 	if (compare(&t1, &zero) == 0) //z3 = 0
 	{
-		BIGNUMPOINTJACO R;
+		BIGNUMPOINTJACO R = { 0, };
 		if (compare(&t2, &zero) == 0) //y3 = 0
 		{
 			//2(x2:y2:1) return
@@ -116,12 +113,37 @@ void ECDBLJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUM* P)
 	BIGNUM x3 = { 0, };
 	BIGNUM y3 = { 0, };
 	BIGNUM z3 = { 0, };
-	BIGNUM inv1 = { 0, };
-	BIGNUM inv2 = { 0, };
-	BIGNUM temp = { 0, };
+	BIGNUM twoinv = { 0, };
 
+	BIGNUM zero = { {0, }, };
 	BIGNUM two = { {2, },1,0 };
 	BIGNUM three = { {3, },1,0 };
+
+	//infinity return
+	if (compare(p1->z, &zero) == 0)
+	{
+		BIGNUMPOINTJACO R = { 0, };
+		initPointJA(&R, p1->x, p1->y, &zero);
+
+		for (int i = 0; i < R.x->top; i++)
+		{
+			r->x->d[i] = R.x->d[i];
+		}
+		r->x->top = R.x->top;
+
+		for (int i = 0; i < R.y->top; i++)
+		{
+			r->y->d[i] = R.y->d[i];
+		}
+		r->y->top = R.y->top;
+
+		for (int i = 0; i < R.z->top; i++)
+		{
+			r->z->d[i] = R.z->d[i];
+		}
+		r->z->top = R.z->top;
+		return;
+	}
 
 	//x3 = (3*x1^2 + a*z1^4)^2 - 8*x1*y1^2
 	//y3 = (3*x1^2 + a*z1^4)*(4*x1*y1^2 - x3) - 8*y1^4
@@ -140,7 +162,15 @@ void ECDBLJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUM* P)
 	fastReduction2(&z3, &z3, P);
 	Squaring(&y3, &y3);
 	fastReduction2(&y3, &y3, P);
-	BignumberRShift(&y3, &y3, 1);
+	OperandScanning(&t3, &y3, p1->x);
+	fastReduction2(&t3, &t3, P);
+	Squaring(&y3, &y3);
+	fastReduction2(&y3, &y3, P);
+	//BignumberRShift(&y3, &y3, 1);
+	FLT256(&twoinv, P, &two);
+	OperandScanning(&y3, &y3, &twoinv);
+	fastReduction2(&y3, &y3, P);
+	//
 	Squaring(&x3, &t2);
 	fastReduction2(&x3, &x3, P);
 	OperandScanning(&t1, &t3, &two);

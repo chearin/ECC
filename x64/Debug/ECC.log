@@ -1,11 +1,2 @@
-﻿  bn.c
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(14,12): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(10,15): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(53,5): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(54,5): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(48,10): warning C4090: '초기화 중': 'const' 한정자가 서로 다릅니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(49,10): warning C4090: '초기화 중': 'const' 한정자가 서로 다릅니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(118,11): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(161,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bn.c(200,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  projective.c
   ECC.vcxproj -> C:\Users\happy\source\repos\2024(인턴)\ECC\x64\Debug\ECC.exe

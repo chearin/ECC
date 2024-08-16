@@ -40,6 +40,10 @@ void fastReduction(BIGNUM* r, const BIGNUM* a, const BIGNUM* P)
 	{
 		r->d[i] = sum.d[i];
 	}
+	for (int i = sum.top; i < 16; i++)
+	{
+		r->d[i] = 0;
+	}
 	r->top = sum.top;
 }
 
@@ -112,6 +116,10 @@ void fastReduction2(BIGNUM* r, const BIGNUM* a, const BIGNUM* P)
 	for (int i = 0; i < sum.top; i++)
 	{
 		r->d[i] = sum.d[i];
+	}
+	for (int i = sum.top; i < 16; i++)
+	{
+		r->d[i] = 0;
 	}
 	r->top = sum.top;
 }

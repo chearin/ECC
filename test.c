@@ -25,7 +25,10 @@ void ECADDDBL()
 	BIGNUM bz = { {1,},1,0 };
 	BIGNUM rx = { 0, };
 	BIGNUM ry = { 0, };
-	BIGNUM rz = { {1,},1,0 };
+	BIGNUM rjx = { 0, };
+	BIGNUM rjy = { 0, };
+	BIGNUM rjz = { {1,},1,0 };
+	BIGNUM rjz2 = { {1,},1,0 };
 	BIGNUM cur_a = { {3,},1,0 };
 	BIGNUM cur_b = { {0,},0,0 };
 
@@ -124,7 +127,7 @@ void ECADDDBL()
 
 	//Jacobian doubling
 	initPointJA(&AJ, &ax, &ay, &az);
-	initPointJA(&RJ, &rx, &ry, &rz);
+	initPointJA(&RJ, &rjx, &rjy, &rjz);
 	initPoint(&RA, &rx, &ry);
 
 	start = cpucycles();
@@ -150,6 +153,23 @@ void ECADDDBL()
 	}
 	printf("\n\n");
 	fprintf(fp4, "\n\n");
+	
+	//********************************//
+	//테스트 벡터들 읽기
+	fscanf(fp1, ")\n2. 2 x G = (");
+	for (int i = 7; i >= 0; i--)
+	{
+		fscanf(fp1, "%08x", &opA[i]);
+	}
+	fscanf(fp1, ", ");
+	for (int i = 7; i >= 0; i--)
+	{
+		fscanf(fp1, "%08x", &opB[i]);
+	}
+	initBignum(&opA, 8, &rjx);
+	initBignum(&opB, 8, &rjy);
+	initPointJA(&RJ, &rjx, &rjy, &rjz2);
+	//********************************//
 
 	//Jacobian addition
 	start = cpucycles();
