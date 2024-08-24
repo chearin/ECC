@@ -15,10 +15,13 @@ void LtRMul(BIGNUMPOINT* r, const BIGNUM* k, const BIGNUMPOINT* a, const BIGNUM*
 	{
 		px.d[i] = a->x->d[i];
 	}
+	px.top = a->x->top;
 	for (int i = 0; i < a->y->top; i++)
 	{
 		py.d[i] = a->y->d[i];
 	}
+	py.top = a->y->top;
+
 	initPoint(&p, &px, &py);
 	initPointJA(&q, &qx, &qy, &zero);
 

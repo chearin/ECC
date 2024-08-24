@@ -8,3 +8,4 @@
 #include "projective.h"
 
 void ECADDDBL();
+void SCALARMUL();

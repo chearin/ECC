@@ -208,3 +208,96 @@ void ECADDDBL()
 	fclose(fp4);
 	fclose(fp5);
 }
+
+void SCALARMUL()
+{
+	FILE* fp0 = NULL;
+	FILE* fp1 = NULL;
+	FILE* fp2 = NULL;
+	FILE* fp3 = NULL;
+
+	unsigned char input_str[1000] = { 0 };
+	uint32_t P256[8] = { 0 };
+	uint32_t opA[8] = { 0 };
+	uint32_t opB[8] = { 0 };
+	uint32_t opC[8] = { 0 };
+
+	BIGNUM P = { 0, };
+	BIGNUM ax = { 0, };
+	BIGNUM ay = { 0, };
+	BIGNUM rx = { 0, };
+	BIGNUM ry = { 0, };
+	BIGNUM scalar = { 0, };
+
+	BIGNUMPOINT A = { 0, };
+	BIGNUMPOINT B = { 0, };
+	BIGNUMPOINT R = { 0, };
+
+	size_t len = 0;
+	uint32_t count = 0;
+
+	unsigned long long start = 0, end = 0;
+	unsigned long long SMcc = 0;
+
+	fp0 = fileOpen("P256값.txt", "r");
+	fp1 = fileOpen("중간결과값.txt", "r");
+	fp2 = fileOpen("TV_Scalar.txt", "r");
+	fp3 = fileOpen("scalarMul.txt", "w");
+
+	//p256값 저장
+	fscanf(fp0, "%s", input_str);
+	len = strlen(input_str) / (sizeof(int) * 2);
+	str2hex(input_str, P256, len);
+	initBignum(P256, len, &P);
+
+	//테스트 벡터들 읽기
+	fscanf(fp1, "1. 1 x G = (");
+	for (int i = 7; i >= 0; i--)
+	{
+		fscanf(fp1, "%08x", &opA[i]);
+	}
+	fscanf(fp1, ", ");
+	for (int i = 7; i >= 0; i--)
+	{
+		fscanf(fp1, "%08x", &opB[i]);
+	}
+
+	initBignum(&opA, 8, &ax);
+	initBignum(&opB, 8, &ay);
+	initPoint(&A, &ax, &ay);
+	initPoint(&R, &rx, &ry);
+
+	while (fscanf(fp2, "%08x", &opC[7]) != EOF)
+	{
+		count++;
+		for (int i = 6; i >= 0; i--)
+		{
+			fscanf(fp2, "%08x", &opC[i]);
+		}
+		initBignum(&opC, 8, &scalar);		
+
+		//SM
+		start = cpucycles();
+		LtRMul(&R, &scalar, &A, &P);
+		end = cpucycles();
+		SMcc += (end - start);
+
+		//결과값 파일에 쓰기
+		for (int i = R.x->top - 1; i >= 0; i--)
+		{
+			fprintf(fp3, "%08X", R.x->d[i]);
+		}
+		fprintf(fp3, "\n");
+		for (int i = R.y->top - 1; i >= 0; i--)
+		{
+			fprintf(fp3, "%08X", R.y->d[i]);
+		}
+		fprintf(fp3, "\n\n");
+	}
+	printf("SMcc = %d\n", SMcc/count);
+
+	fclose(fp0);
+	fclose(fp1);
+	fclose(fp2);
+	fclose(fp3);
+}

@@ -15,6 +15,58 @@ void ECADDJ(BIGNUMPOINTJACO* r, const BIGNUMPOINTJACO* p1, const BIGNUMPOINT* p2
 	BIGNUM two = { {2, },1, 0 };
 	BIGNUM three = { {3, },1, 0 };
 
+	if (compare(p1->z, &zero) == 0)
+	{
+		BIGNUMPOINTJACO R = { 0, };
+		initPointJA(&R, p2->x, p2->y, &one);
+
+		for (int i = 0; i < R.x->top; i++)
+		{
+			r->x->d[i] = R.x->d[i];
+		}
+		r->x->top = R.x->top;
+
+		for (int i = 0; i < R.y->top; i++)
+		{
+			r->y->d[i] = R.y->d[i];
+		}
+		r->y->top = R.y->top;
+
+		for (int i = 0; i < R.z->top; i++)
+		{
+			r->z->d[i] = R.z->d[i];
+		}
+		r->z->top = R.z->top;
+		return;
+	}
+	if (compare(p2->x, &zero) == 0)
+	{
+		if (compare(p2->y, &zero) == 0)
+		{
+			BIGNUMPOINTJACO R = { 0, };
+			initPointJA(&R, p1->x, p1->y, p1->z);
+
+			for (int i = 0; i < R.x->top; i++)
+			{
+				r->x->d[i] = R.x->d[i];
+			}
+			r->x->top = R.x->top;
+
+			for (int i = 0; i < R.y->top; i++)
+			{
+				r->y->d[i] = R.y->d[i];
+			}
+			r->y->top = R.y->top;
+
+			for (int i = 0; i < R.z->top; i++)
+			{
+				r->z->d[i] = R.z->d[i];
+			}
+			r->z->top = R.z->top;
+			return;
+		}
+	}
+
 	//x3 = (y2*z1^3 - y1)^2 - (x2*z1^2 - x1)^2*(x1 + x2*z1^2)
 	//y3 = (y2*z1^3 - y1)*(x1*(x2*z1^2 - x1)^2 - x3) - y1*(x2*z1^2 - x1)^3
 	//z3 = z1*(x2*z1^2 - x1)

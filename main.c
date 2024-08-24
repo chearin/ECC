@@ -5,7 +5,8 @@
 
 int main()
 {
-	ECADDDBL();
+	//ECADDDBL();
+	SCALARMUL();
 
 	return 0;
 }
