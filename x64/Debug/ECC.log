@@ -1,2 +1,51 @@
-﻿  scalarMul.c
+﻿  affine.c
+  bnPoint.c
+  main.c
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bnPoint.c(5,8): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bnPoint.c(6,8): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bnPoint.c(11,8): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bnPoint.c(12,8): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\bnPoint.c(13,8): warning C4090: '=': 'const' 한정자가 서로 다릅니다.
+  projective.c
+  scalarMul.c
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c(153,20): warning C4047: '<': 'int'의 간접 참조 수준이 'uint8_t *'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c(214,15): warning C4133: '함수': 'BIGNUMPOINTJACO2 *'과(와) 'const BIGNUMPOINTJACO *' 사이의 형식이 호환되지 않습니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c(218,10): warning C4133: '함수': 'BIGNUMPOINTJACO2 *'과(와) 'BIGNUMPOINTJACO *' 사이의 형식이 호환되지 않습니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c(218,18): warning C4133: '함수': 'BIGNUMPOINTJACO2 *'과(와) 'const BIGNUMPOINTJACO *' 사이의 형식이 호환되지 않습니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c(239,13): warning C4133: '함수': 'BIGNUMPOINTJACO2 *'과(와) 'const BIGNUMPOINTJACO *' 사이의 형식이 호환되지 않습니다.
+  test.c
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(75,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(75,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(76,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(76,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(169,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(169,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(170,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(170,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(199,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(200,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(201,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(202,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(265,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(265,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(266,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(266,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(277,14): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(277,14): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(297,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(358,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(358,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(359,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(359,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(370,14): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(370,14): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(390,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(451,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(451,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(452,13): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(452,13): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(463,14): warning C4047: '함수': 'const uint32_t *'의 간접 참조 수준이 'uint32_t (*)[8]'과(와) 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(463,14): warning C4024: 'initBignum': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\test.c(483,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+  코드를 생성하고 있습니다...
   ECC.vcxproj -> C:\Users\happy\source\repos\2024(인턴)\ECC\x64\Debug\ECC.exe

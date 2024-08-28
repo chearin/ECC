@@ -7,6 +7,7 @@ C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\inversion.c;C:\Users\happy\sour
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\karatsuba.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\karatsuba.obj
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\main.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\main.obj
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\mul.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\mul.obj
+C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\naf.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\naf.obj
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\projective.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\projective.obj
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\reduction.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\reduction.obj
 C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\scalarMul.c;C:\Users\happy\source\repos\2024(인턴)\ECC\ECC\x64\Debug\scalarMul.obj

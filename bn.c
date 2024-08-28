@@ -206,6 +206,10 @@ void BignumberRShift32(BIGNUM* r, const BIGNUM* a, const uint32_t n)
 		r->d[i] = 0;
 	}
 	r->top = a->top - n;
+	if (r->top < 0)
+	{
+		r->top = 0;
+	}
 }
 
 void BignumberRShift(BIGNUM* r, const BIGNUM* a, const uint32_t n)
@@ -214,6 +218,10 @@ void BignumberRShift(BIGNUM* r, const BIGNUM* a, const uint32_t n)
 	uint32_t rest = n % 32;
 	uint32_t atop = a->top;
 
+	if (r->top == 0)
+	{
+		return;
+	}
 	BignumberRShift32(r, a, q);
 	if (rest)
 	{

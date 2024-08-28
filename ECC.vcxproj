@@ -136,6 +136,7 @@
     <ClCompile Include="karatsuba.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="mul.c" />
+    <ClCompile Include="naf.c" />
     <ClCompile Include="projective.c" />
     <ClCompile Include="reduction.c" />
     <ClCompile Include="scalarMul.c" />
@@ -151,6 +152,7 @@
     <ClInclude Include="inversion.h" />
     <ClInclude Include="karatsuba.h" />
     <ClInclude Include="mul.h" />
+    <ClInclude Include="naf.h" />
     <ClInclude Include="projective.h" />
     <ClInclude Include="reduction.h" />
     <ClInclude Include="scalarMul.h" />

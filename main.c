@@ -7,7 +7,8 @@ int main()
 {
 	//ECADDDBL();
 	//SCALARMUL();
-	SCALARMUL2();
+	//SCALARMUL2();
+	SWSM();
 
 	return 0;
 }
